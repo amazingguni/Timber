@@ -37,13 +37,7 @@ jobs:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
       # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "build.gradle" }}
       - run:
           name: Build 
           command: ./gradlew clean assembleDebug
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
+      
